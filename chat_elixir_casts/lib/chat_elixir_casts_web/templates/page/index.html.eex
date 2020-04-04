@@ -1,0 +1,25 @@
+<style type="text/css">
+#message-error {
+  color: red;
+  display: none;
+}
+</style>
+
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+</section>
+
+<h2>The Water Cooler</h2>
+<div id="chat-box">
+  <%= for message <- @messages do %>
+    <p><b><%= message.name %>:</b> <%= message.body %></p>
+  <% end %>
+</div>
+
+<form id="chat-form">
+  <input type="text" placeholder="Display name" id="user-name"></input>
+  <textarea placeholder="Your message" id="user-msg"></textarea>
+  <button type="submit">Send</button>
+  <p id="message-error" />
+</form>
